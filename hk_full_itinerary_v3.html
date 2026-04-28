@@ -1,115 +1,672 @@
-
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>香港行程 · 5月21–24日</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-.day-block { margin-bottom: 2rem; }
-.day-header { font-size: 15px; font-weight: 500; padding: 0.6rem 1rem; border-radius: var(--border-radius-md); margin-bottom: 0.75rem; }
-.d1 { background: #B5D4F4; color: #042C53; }
-.d2 { background: #C0DD97; color: #173404; }
-.d3 { background: #CECBF6; color: #26215C; }
-.d4 { background: #FAC775; color: #412402; }
-.item { display: flex; gap: 12px; align-items: flex-start; padding: 0.6rem 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
-.item:last-child { border-bottom: none; }
-.time { font-size: 12px; color: var(--color-text-secondary); min-width: 50px; padding-top: 3px; flex-shrink: 0; }
-.dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-.dot-place { background: #378ADD; }
-.dot-food { background: #1D9E75; }
-.dot-hotel { background: #D85A30; }
-.dot-move { background: #888780; }
-.dot-bar { background: #7F77DD; }
-.name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
-.note { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; line-height: 1.5; }
-.badge { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 10px; margin-left: 5px; font-weight: 400; }
-.b-area { background: #E6F1FB; color: #185FA5; }
-.b-food { background: #E1F5EE; color: #0F6E56; }
-.b-warn { background: #FAEEDA; color: #854F0B; }
-.b-tip { background: #FCEBEB; color: #A32D2D; }
-.zone-label { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); letter-spacing: 0.05em; margin: 1.1rem 0 0.2rem; text-transform: uppercase; }
-.divider { display: flex; align-items: center; gap: 8px; padding: 0.35rem 0; color: var(--color-text-secondary); font-size: 11px; }
-.div-line { flex: 1; height: 0.5px; background: var(--color-border-tertiary); }
-.legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 1.5rem; }
-.leg { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--color-text-secondary); }
-</style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<h2 class="sr-only">香港四天完整行程 5月21日至24日</h2>
+  :root {
+    --bg: #F7F5F0;
+    --card: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #6B6860;
+    --text-muted: #A8A49C;
+    --border: #E8E4DC;
+    --d1: #1B4B8A;
+    --d1-bg: #EEF4FC;
+    --d2: #2D6A3F;
+    --d2-bg: #EDF7F0;
+    --d3: #5B3D8C;
+    --d3-bg: #F2EDF9;
+    --d4: #9C5A1A;
+    --d4-bg: #FDF3E7;
+    --dot-place: #2B7BE8;
+    --dot-food: #27A85F;
+    --dot-hotel: #E05A2B;
+    --dot-move: #999490;
+    --dot-bar: #7B5FCC;
+    --warn-bg: #FEF8EC;
+    --warn-text: #92600F;
+    --tip-bg: #FEECEC;
+    --tip-text: #9B2B2B;
+    --tag-bg: #EEF4FC;
+    --tag-text: #1B4B8A;
+  }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--text-primary);
+    color: #fff;
+    padding: 52px 20px 28px;
+    padding-top: max(52px, calc(44px + env(safe-area-inset-top)));
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .header-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 14px 20px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+  }
+  .leg {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+  .leg-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* CONTENT */
+  .content { padding: 16px 16px 40px; }
+
+  /* DAY BLOCK */
+  .day-block { margin-bottom: 20px; }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 14px 14px 0 0;
+    margin-bottom: 0;
+  }
+  .day-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1;
+    min-width: 28px;
+  }
+  .day-info { flex: 1; }
+  .day-date { font-size: 13px; font-weight: 500; opacity: 0.75; }
+  .day-title { font-size: 15px; font-weight: 500; margin-top: 1px; }
+
+  .d1 .day-num, .d1 .day-title { color: var(--d1); }
+  .d1 .day-date { color: var(--d1); }
+  .d1 { background: var(--d1-bg); border: 1px solid #C8D9EF; border-bottom: none; }
+
+  .d2 .day-num, .d2 .day-title { color: var(--d2); }
+  .d2 .day-date { color: var(--d2); }
+  .d2 { background: var(--d2-bg); border: 1px solid #B8DEC4; border-bottom: none; }
+
+  .d3 .day-num, .d3 .day-title { color: var(--d3); }
+  .d3 .day-date { color: var(--d3); }
+  .d3 { background: var(--d3-bg); border: 1px solid #CEBDE8; border-bottom: none; }
+
+  .d4 .day-num, .d4 .day-title { color: var(--d4); }
+  .d4 .day-date { color: var(--d4); }
+  .d4 { background: var(--d4-bg); border: 1px solid #E8C896; border-bottom: none; }
+
+  /* CARD */
+  .day-card {
+    background: var(--card);
+    border-radius: 0 0 14px 14px;
+    border: 1px solid var(--border);
+    border-top: none;
+    overflow: hidden;
+  }
+
+  /* ZONE */
+  .zone-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 12px 16px 4px;
+    background: #FAFAF8;
+    border-top: 1px solid var(--border);
+  }
+  .zone-label:first-child { border-top: none; }
+
+  /* ITEM */
+  .item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .item:last-child { border-bottom: none; }
+
+  .time {
+    font-size: 11px;
+    color: var(--text-muted);
+    min-width: 38px;
+    padding-top: 3px;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+
+  .dot-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    padding-top: 5px;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .item-content { flex: 1; min-width: 0; }
+  .item-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+  .item-note {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 6px;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .tag-area { background: var(--tag-bg); color: var(--tag-text); }
+  .tag-food { background: #EDF7F0; color: #1F6B3A; }
+  .tag-warn { background: var(--warn-bg); color: var(--warn-text); }
+  .tag-alert { background: var(--tip-bg); color: var(--tip-text); }
+
+  /* DIVIDER */
+  .route-divider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #FAFAF8;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .route-line { flex: 1; height: 1px; background: var(--border); }
+  .route-text {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
+  }
+
+  /* REMINDERS */
+  .reminders {
+    background: var(--card);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .reminders-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 12px 16px;
+    background: #FAFAF8;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+  .reminder-item {
+    display: flex;
+    gap: 10px;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .reminder-item:last-child { border-bottom: none; }
+  .reminder-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">行程规划</div>
+  <div class="header-title">香港四天<br>旅行行程</div>
+  <div class="header-sub">5月21日 — 5月24日 · 双人</div>
+</div>
 
 <div class="legend">
-  <div class="leg"><div class="dot dot-place"></div>景点</div>
-  <div class="leg"><div class="dot dot-food"></div>餐饮</div>
-  <div class="leg"><div class="dot dot-hotel"></div>酒店/住宿</div>
-  <div class="leg"><div class="dot dot-bar"></div>夜间活动</div>
-  <div class="leg"><div class="dot dot-move"></div>移动</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--dot-place)"></div>景点</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--dot-food)"></div>餐饮</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--dot-hotel)"></div>住宿</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--dot-bar)"></div>夜间</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--dot-move)"></div>移动</div>
 </div>
+
+<div class="content">
 
 <!-- DAY 1 -->
 <div class="day-block">
-  <div class="day-header d1">5月21日（周三） 抵港 · 迪士尼</div>
-
-  <div class="item"><div class="time">13:00</div><div class="dot dot-move"></div><div><div class="name">抵达香港国际机场</div><div class="note">入境 → 乘迪士尼线或巴士前往迪士尼酒店，约50分钟</div></div></div>
-  <div class="item"><div class="time">14:30</div><div class="dot dot-hotel"></div><div><div class="name">香港迪士尼乐园酒店 Check-in<span class="badge b-area">大屿山</span></div><div class="note">放行李，换舒适的鞋，准备入园</div></div></div>
-  <div class="item"><div class="time">15:30</div><div class="dot dot-place"></div><div><div class="name">香港迪士尼乐园</div><div class="note">下午场入园，先冲热门项目，感受园区氛围，玩至闭园</div></div></div>
-  <div class="item"><div class="time">晚餐</div><div class="dot dot-food"></div><div><div class="name">园内或酒店餐厅</div><div class="note">不用出园，省时省力</div></div></div>
+  <div class="day-header d1">
+    <div class="day-num">01</div>
+    <div class="day-info">
+      <div class="day-date">5月21日 · 周三</div>
+      <div class="day-title">抵港 · 迪士尼</div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="item">
+      <div class="time">13:00</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-move)"></div></div>
+      <div class="item-content">
+        <div class="item-name">抵达香港国际机场</div>
+        <div class="item-note">入境 → 乘迪士尼线或巴士前往迪士尼酒店，约50分钟</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">14:30</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-hotel)"></div></div>
+      <div class="item-content">
+        <div class="item-name">香港迪士尼乐园酒店 Check-in</div>
+        <div class="item-note">放行李，换舒适的鞋，准备入园</div>
+        <div class="tags"><span class="tag tag-area">大屿山</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">15:30</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">香港迪士尼乐园</div>
+        <div class="item-note">下午场入园，先冲热门项目，感受园区氛围，玩至闭园</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">晚餐</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-food)"></div></div>
+      <div class="item-content">
+        <div class="item-name">园内或酒店餐厅</div>
+        <div class="item-note">不用出园，省时省力</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- DAY 2 -->
 <div class="day-block">
-  <div class="day-header d2">5月22日（周四） 迪士尼全天 · 转铜锣湾</div>
-
-  <div class="item"><div class="time">09:00</div><div class="dot dot-place"></div><div><div class="name">香港迪士尼乐园 开园</div><div class="note">全力冲剩余想玩的项目，午饭在园内解决</div></div></div>
-  <div class="item"><div class="time">16:00</div><div class="dot dot-move"></div><div><div class="name">离开迪士尼，前往铜锣湾</div><div class="note">欣澳站 → 港铁荃湾线 → 铜锣湾站，约40分钟</div></div></div>
-  <div class="item"><div class="time">17:15</div><div class="dot dot-hotel"></div><div><div class="name">香港明怡美憬阁精选酒店 Check-in<span class="badge b-area">铜锣湾</span></div><div class="note">雅高集团旗下，放行李，洗漱换装</div></div></div>
-  <div class="item"><div class="time">18:30</div><div class="dot dot-food"></div><div><div class="name">Doraya 定食<span class="badge b-food">日料·铜锣湾店</span><span class="badge b-warn">⚠️ 不接受预约</span></div><div class="note">地址：铜锣湾骆克道453号 · 营业至00:00 · 店小只有4-5桌，建议18:00前到候位</div></div></div>
-  <div class="item"><div class="time">饭后</div><div class="dot dot-place"></div><div><div class="name">铜锣湾周边随逛</div><div class="note">时代广场、利园一带，感受港式夜晚购物氛围</div></div></div>
+  <div class="day-header d2">
+    <div class="day-num">02</div>
+    <div class="day-info">
+      <div class="day-date">5月22日 · 周四</div>
+      <div class="day-title">迪士尼全天 · 转铜锣湾</div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="item">
+      <div class="time">09:00</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">香港迪士尼乐园 开园</div>
+        <div class="item-note">全力冲剩余想玩的项目，午饭在园内解决</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">16:00</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-move)"></div></div>
+      <div class="item-content">
+        <div class="item-name">离开迪士尼，前往铜锣湾</div>
+        <div class="item-note">欣澳站 → 港铁荃湾线 → 铜锣湾站，约40分钟</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">17:15</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-hotel)"></div></div>
+      <div class="item-content">
+        <div class="item-name">香港明怡美憬阁精选酒店 Check-in</div>
+        <div class="item-note">雅高集团旗下，放行李，洗漱换装</div>
+        <div class="tags"><span class="tag tag-area">铜锣湾</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">18:30</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-food)"></div></div>
+      <div class="item-content">
+        <div class="item-name">Doraya 定食</div>
+        <div class="item-note">铜锣湾骆克道453号 · 营业至00:00</div>
+        <div class="tags">
+          <span class="tag tag-food">日料·铜锣湾店</span>
+          <span class="tag tag-alert">⚠ 不接受预约·早到候位</span>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">饭后</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">铜锣湾周边随逛</div>
+        <div class="item-note">时代广场、利园一带，感受港式夜晚购物氛围</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- DAY 3 -->
 <div class="day-block">
-  <div class="day-header d3">5月23日（周五） 西九龙 · 旺角 · 深水埗 · 钻石山</div>
+  <div class="day-header d3">
+    <div class="day-num">03</div>
+    <div class="day-info">
+      <div class="day-date">5月23日 · 周五</div>
+      <div class="day-title">西九龙 · 旺角 · 深水埗 · 钻石山</div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="zone-label">上午 · 西九龙</div>
+    <div class="item">
+      <div class="time">09:30</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-move)"></div></div>
+      <div class="item-content">
+        <div class="item-name">从铜锣湾出发 → 西九龙</div>
+        <div class="item-note">港铁约25分钟，提前在官网购好M+门票</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">10:00</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">M+ 博物馆</div>
+        <div class="item-note">亚洲最重要的当代视觉文化博物馆，约2小时 · 开放至18:00</div>
+        <div class="tags">
+          <span class="tag tag-area">西九龙</span>
+          <span class="tag tag-warn">⚠ 须提前购票</span>
+        </div>
+      </div>
+    </div>
 
-  <div class="zone-label">上午 · 西九龙</div>
-  <div class="item"><div class="time">09:30</div><div class="dot dot-move"></div><div><div class="name">从铜锣湾出发 → 西九龙</div><div class="note">港铁约25分钟，提前在官网购好M+门票</div></div></div>
-  <div class="item"><div class="time">10:00</div><div class="dot dot-place"></div><div><div class="name">M+ 博物馆<span class="badge b-area">西九龙</span><span class="badge b-warn">⚠️ 须提前购票</span></div><div class="note">亚洲最重要的当代视觉文化博物馆，约2小时 · 开放至18:00</div></div></div>
+    <div class="route-divider">
+      <div class="route-line"></div>
+      <div class="route-text">港铁 柯士甸 → 太子，约15分钟</div>
+      <div class="route-line"></div>
+    </div>
 
-  <div class="divider"><div class="div-line"></div>港铁 柯士甸 → 太子，约15分钟<div class="div-line"></div></div>
+    <div class="zone-label">中午 · 旺角 / 太子</div>
+    <div class="item">
+      <div class="time">12:30</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-food)"></div></div>
+      <div class="item-content">
+        <div class="item-name">午餐</div>
+        <div class="item-note">旺角有大量港式茶餐厅、车仔面、云吞面老字号可选</div>
+        <div class="tags"><span class="tag tag-area">旺角一带</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">13:30</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">Infree Records</div>
+        <div class="item-note">太子煙廠路34-36号東樂大廈2楼B室 · 营业至22:00<br>黑胶唱片独立店，老板热情，可喝啤酒边听边聊</div>
+        <div class="tags"><span class="tag tag-area">太子</span></div>
+      </div>
+    </div>
 
-  <div class="zone-label">中午 · 旺角/太子</div>
-  <div class="item"><div class="time">12:30</div><div class="dot dot-food"></div><div><div class="name">午餐<span class="badge b-area">旺角一带</span></div><div class="note">旺角有大量港式茶餐厅、车仔面、云吞面老字号可选</div></div></div>
-  <div class="item"><div class="time">13:30</div><div class="dot dot-place"></div><div><div class="name">Infree Records<span class="badge b-area">太子</span></div><div class="note">地址：太子煙廠路34-36号東樂大廈2楼B室 · 营业至22:00<br>黑胶唱片独立店，老板热情，可以喝啤酒边听边聊，约1小时</div></div></div>
+    <div class="route-divider">
+      <div class="route-line"></div>
+      <div class="route-text">港铁 太子 → 深水埗，约5分钟</div>
+      <div class="route-line"></div>
+    </div>
 
-  <div class="divider"><div class="div-line"></div>港铁 太子 → 深水埗，约5分钟<div class="div-line"></div></div>
+    <div class="zone-label">下午 · 深水埗</div>
+    <div class="item">
+      <div class="time">15:00</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">前深水埗配水库</div>
+        <div class="item-note">免费参观但名额有限，约1小时</div>
+        <div class="tags">
+          <span class="tag tag-area">深水埗</span>
+          <span class="tag tag-alert">⚠ 须提前预约</span>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">16:15</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">深水埗街区随逛</div>
+        <div class="item-note">鸭寮街、桂林街布料市场，旧式唐楼与市井气息</div>
+      </div>
+    </div>
 
-  <div class="zone-label">下午 · 深水埗</div>
-  <div class="item"><div class="time">15:00</div><div class="dot dot-place"></div><div><div class="name">前深水埗配水库<span class="badge b-area">深水埗</span><span class="badge b-tip">⚠️ 须提前预约</span></div><div class="note">免费参观但名额有限 · 现在就去搜"前深水埗配水库预约"登记！约1小时</div></div></div>
-  <div class="item"><div class="time">16:15</div><div class="dot dot-place"></div><div><div class="name">深水埗街区随逛</div><div class="note">鸭寮街、桂林街布料市场，旧式唐楼与市井气息，顺路感受即可</div></div></div>
+    <div class="route-divider">
+      <div class="route-line"></div>
+      <div class="route-text">港铁 深水埗 → 钻石山，约15分钟</div>
+      <div class="route-line"></div>
+    </div>
 
-  <div class="divider"><div class="div-line"></div>港铁 深水埗 → 钻石山，约15分钟<div class="div-line"></div></div>
+    <div class="zone-label">傍晚 · 钻石山</div>
+    <div class="item">
+      <div class="time">17:15</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">志莲净苑</div>
+        <div class="item-note">仿唐代木构建筑，殿内禁拍，请安静感受 · 免费</div>
+        <div class="tags">
+          <span class="tag tag-area">钻石山</span>
+          <span class="tag tag-alert">⚠ 16:30关门·需卡时间</span>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">17:45</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">南莲园池</div>
+        <div class="item-note">紧邻志莲，步行相连，黄昏金亭倒映水中最美 · 免费 · 开放至21:00</div>
+        <div class="tags"><span class="tag tag-area">钻石山</span></div>
+      </div>
+    </div>
 
-  <div class="zone-label">傍晚 · 钻石山</div>
-  <div class="item"><div class="time">17:15</div><div class="dot dot-place"></div><div><div class="name">志莲净苑<span class="badge b-area">钻石山</span></div><div class="note">仿唐代木构建筑，殿内禁拍，请安静感受 · 免费 · 开放至16:30<br>⚠️ 注意：16:30关门，需卡时间，建议17:00前到，不然可能进不去</div></div></div>
-  <div class="item"><div class="time">17:45</div><div class="dot dot-place"></div><div><div class="name">南莲园池<span class="badge b-area">钻石山</span></div><div class="note">紧邻志莲，步行相连，黄昏金亭倒映水中最美 · 免费 · 开放至21:00</div></div></div>
+    <div class="route-divider">
+      <div class="route-line"></div>
+      <div class="route-text">港铁 钻石山 → 铜锣湾，约20分钟</div>
+      <div class="route-line"></div>
+    </div>
 
-  <div class="divider"><div class="div-line"></div>港铁 钻石山 → 铜锣湾，约20分钟<div class="div-line"></div></div>
-
-  <div class="zone-label">晚上 · 铜锣湾</div>
-  <div class="item"><div class="time">19:30</div><div class="dot dot-food"></div><div><div class="name">晚餐（待定）<span class="badge b-area">铜锣湾</span></div><div class="note">铜锣湾一带自选，可告知我偏好帮你推荐</div></div></div>
-  <div class="item"><div class="time">21:00</div><div class="dot dot-bar"></div><div><div class="name">铜锣湾酒吧</div><div class="note">利园二期、百德新街一带有多家酒吧，氛围轻松</div></div></div>
+    <div class="zone-label">晚上 · 铜锣湾</div>
+    <div class="item">
+      <div class="time">19:30</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-food)"></div></div>
+      <div class="item-content">
+        <div class="item-name">晚餐（待定）</div>
+        <div class="item-note">铜锣湾一带自选</div>
+        <div class="tags"><span class="tag tag-area">铜锣湾</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">21:00</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-bar)"></div></div>
+      <div class="item-content">
+        <div class="item-name">铜锣湾酒吧</div>
+        <div class="item-note">利园二期、百德新街一带有多家酒吧，氛围轻松</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- DAY 4 -->
 <div class="day-block">
-  <div class="day-header d4">5月24日（周六） 中环·上环 · 机场</div>
+  <div class="day-header d4">
+    <div class="day-num">04</div>
+    <div class="day-info">
+      <div class="day-date">5月24日 · 周六</div>
+      <div class="day-title">中环·上环 · 机场</div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="zone-label">上午 · 中环</div>
+    <div class="item">
+      <div class="time">09:00</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-move)"></div></div>
+      <div class="item-content">
+        <div class="item-name">从铜锣湾出发 → 中环</div>
+        <div class="item-note">港铁约10分钟</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">09:15</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">圣约翰座堂</div>
+        <div class="item-note">1847年哥特式古教堂，推门进去静坐感受，约30-40分钟 · 免费</div>
+        <div class="tags"><span class="tag tag-area">中环</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">10:00</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">PMQ 元创方</div>
+        <div class="item-note">步行5分钟可到 · 本地独立设计师工作室，约1小时</div>
+        <div class="tags"><span class="tag tag-area">中环</span></div>
+      </div>
+    </div>
 
-  <div class="zone-label">上午 · 中环</div>
-  <div class="item"><div class="time">09:00</div><div class="dot dot-move"></div><div><div class="name">从铜锣湾出发 → 中环</div><div class="note">港铁约10分钟</div></div></div>
-  <div class="item"><div class="time">09:15</div><div class="dot dot-place"></div><div><div class="name">圣约翰座堂<span class="badge b-area">中环</span></div><div class="note">1847年哥特式古教堂，推门进去静坐感受，约30-40分钟 · 免费</div></div></div>
-  <div class="item"><div class="time">10:00</div><div class="dot dot-place"></div><div><div class="name">PMQ 元创方<span class="badge b-area">中环</span></div><div class="note">步行5分钟可到 · 本地独立设计师工作室，约1小时</div></div></div>
+    <div class="route-divider">
+      <div class="route-line"></div>
+      <div class="route-text">步行约8分钟 → 上环</div>
+      <div class="route-line"></div>
+    </div>
 
-  <div class="divider"><div class="div-line"></div>步行约8分钟 → 上环<div class="div-line"></div></div>
+    <div class="zone-label">中午 · 上环</div>
+    <div class="item">
+      <div class="time">11:45</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-food)"></div></div>
+      <div class="item-content">
+        <div class="item-name">Samsen 泰料</div>
+        <div class="item-note">上环蓮香里23号地下 · 午市11:45开 · 米其林必比登</div>
+        <div class="tags">
+          <span class="tag tag-food">泰式·上环店</span>
+          <span class="tag tag-warn">⚠ 建议提前预约</span>
+        </div>
+      </div>
+    </div>
 
-  <div class="zone-label">中午 · 上环</div>
-  <div class="item"><div class="time">11:45</div><div class="dot dot-food"></div><div><div class="name">Samsen 泰料<span class="badge b-food">泰式·上环店</span><span class="badge b-warn">⚠️ 建议提前预约</span></div><div class="note">地址：上环蓮香里23号地下 · 午市11:45开 · 米其林必比登</div></div></div>
-
-  <div class="zone-label">下午 · 金钟</div>
-  <div class="item"><div class="time">13:30</div><div class="dot dot-place"></div><div><div class="name">太古广场<span class="badge b-area">金钟</span></div><div class="note">上环 → 金钟，港铁约5分钟 · 高端购物商场，紧邻香港公园，可顺路散步</div></div></div>
-  <div class="item"><div class="time">14:00</div><div class="dot dot-move"></div><div><div class="name">返回酒店取行李</div><div class="note">金钟 → 铜锣湾，港铁约8分钟</div></div></div>
-  <div class="item"><div class="time">14:30</div><div class="dot dot-move"></div><div><div class="name">出发前往机场</div><div class="note">铜锣湾 → 香港站乘机场快线，全程约30分钟 · 6:40航班建议16:00前到机场</div></div></div>
-  <div class="item"><div class="time">18:40</div><div class="dot dot-move"></div><div><div class="name">航班出发</div><div class="note"></div></div></div>
+    <div class="zone-label">下午 · 金钟</div>
+    <div class="item">
+      <div class="time">13:30</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-place)"></div></div>
+      <div class="item-content">
+        <div class="item-name">太古广场</div>
+        <div class="item-note">上环 → 金钟，港铁约5分钟 · 高端商场，紧邻香港公园，可顺路散步</div>
+        <div class="tags"><span class="tag tag-area">金钟</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">14:00</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-move)"></div></div>
+      <div class="item-content">
+        <div class="item-name">返回酒店取行李</div>
+        <div class="item-note">金钟 → 铜锣湾，港铁约8分钟</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">14:30</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-move)"></div></div>
+      <div class="item-content">
+        <div class="item-name">出发前往机场</div>
+        <div class="item-note">铜锣湾 → 香港站乘机场快线，全程约30分钟</div>
+        <div class="tags"><span class="tag tag-alert">⚠ 6:40航班·建议16:00前到机场</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="time">18:40</div>
+      <div class="dot-wrap"><div class="dot" style="background:var(--dot-move)"></div></div>
+      <div class="item-content">
+        <div class="item-name">航班出发</div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- REMINDERS -->
+<div class="reminders">
+  <div class="reminders-title">重要提醒</div>
+  <div class="reminder-item">
+    <div class="reminder-icon">📋</div>
+    <div>前深水埗配水库须提前预约，免费但名额有限，现在就去搜索登记</div>
+  </div>
+  <div class="reminder-item">
+    <div class="reminder-icon">🍜</div>
+    <div>Samsen 极热门，建议提前一周以上预约</div>
+  </div>
+  <div class="reminder-item">
+    <div class="reminder-icon">🍱</div>
+    <div>Doraya 铜锣湾店不接受预约，只有4-5桌，建议18:00前到候位</div>
+  </div>
+  <div class="reminder-item">
+    <div class="reminder-icon">🎨</div>
+    <div>M+ 博物馆须提前在官网购票</div>
+  </div>
+  <div class="reminder-item">
+    <div class="reminder-icon">🚇</div>
+    <div>建议买一张八达通卡，港铁/巴士/小巴通用，方便全程出行</div>
+  </div>
+  <div class="reminder-item">
+    <div class="reminder-icon">⏰</div>
+    <div>志莲净苑 16:30 关门，5/23 下午需注意卡时间</div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
