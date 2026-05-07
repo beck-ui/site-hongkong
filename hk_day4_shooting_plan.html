@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>香港第4天拍摄计划 · 离开前的半日散步</title>
+  <style>
+:root {
+  --bg: #f5f1e8;
+  --paper: #fffaf0;
+  --paper-2: #fbf3e4;
+  --ink: #25211c;
+  --muted: #756b5f;
+  --line: rgba(50, 42, 32, 0.14);
+  --accent: #8d5b37;
+  --accent-2: #b98a5c;
+  --night: #1f2a33;
+  --green: #536a55;
+  --blue: #4b6472;
+  --shadow: 0 18px 50px rgba(45, 35, 20, .10);
+  --radius: 26px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(185, 138, 92, .22), transparent 30%),
+    radial-gradient(circle at top right, rgba(75, 100, 114, .16), transparent 28%),
+    linear-gradient(180deg, #f7f1e8 0%, #efe5d6 100%);
+  color: var(--ink);
+  letter-spacing: .01em;
+}
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: none; }
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 34px 0 56px;
+}
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.top-nav a, .link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 240, .62);
+  font-weight: 700;
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  min-height: 340px;
+  padding: 38px;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 240, .95), rgba(255, 250, 240, .70)),
+    linear-gradient(135deg, rgba(31, 42, 51, .16), rgba(141, 91, 55, .10));
+  box-shadow: var(--shadow);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(37, 33, 28, .05) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(37, 33, 28, .05) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.35), transparent 72%);
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  right: -90px;
+  bottom: -110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(141, 91, 55, .26), transparent 65%);
+  pointer-events: none;
+}
+.eyebrow {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  background: var(--accent);
+  box-shadow: 0 0 0 7px rgba(141, 91, 55, .10);
+}
+h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(40px, 8vw, 88px);
+  line-height: .95;
+  letter-spacing: -.07em;
+  font-weight: 850;
+}
+.subtitle {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.72;
+}
+.chips {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 240, .68);
+  color: #4b4036;
+  font-size: 13px;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+.quick-card, .day-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px;
+  background: rgba(255, 250, 240, .72);
+  box-shadow: 0 12px 30px rgba(45, 35, 20, .06);
+}
+.quick-card strong {
+  display: block;
+  font-size: 24px;
+  letter-spacing: -.03em;
+  margin-bottom: 5px;
+}
+.quick-card span { color: var(--muted); font-size: 13px; line-height: 1.48; }
+.section-title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 44px 0 18px;
+}
+.section-title h2 {
+  margin: 0;
+  font-size: clamp(26px, 4vw, 42px);
+  letter-spacing: -.05em;
+  line-height: 1.05;
+}
+.section-title p {
+  max-width: 530px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 15px;
+  text-align: right;
+}
+.timeline { display: grid; gap: 18px; }
+.block {
+  position: relative;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 250, 240, .82);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.block::before {
+  content: "";
+  position: absolute;
+  left: 91px; top: 0; bottom: 0;
+  width: 1px; background: var(--line);
+}
+.time {
+  padding: 24px 14px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(251, 243, 228, .65), rgba(255, 250, 240, .45));
+}
+.time .num {
+  display: block;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: .12em;
+}
+.time .hour {
+  display: block;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: -.03em;
+}
+.content { padding: 24px 24px 26px; }
+.content h3 {
+  margin: 0 0 8px;
+  font-size: clamp(21px, 2.4vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -.04em;
+}
+.intent { margin: 0 0 18px; color: var(--muted); line-height: 1.72; font-size: 15px; }
+.mini-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 12px; align-items: stretch; }
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(251, 243, 228, .68);
+  padding: 16px;
+}
+.panel h4 {
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  letter-spacing: -.01em;
+}
+ul { margin: 0; padding: 0 0 0 18px; color: #3f382f; line-height: 1.78; font-size: 14.5px; }
+li + li { margin-top: 2px; }
+.quote {
+  margin: 12px 0 0;
+  border-left: 3px solid var(--accent-2);
+  padding: 8px 0 8px 13px;
+  color: #584a3d;
+  font-size: 14.5px;
+  line-height: 1.65;
+  background: linear-gradient(90deg, rgba(185, 138, 92, .10), transparent);
+  border-radius: 0 12px 12px 0;
+}
+.dark-card {
+  background: linear-gradient(135deg, rgba(31, 42, 51, .96), rgba(45, 52, 51, .94));
+  color: #fff6e7;
+  border: 0;
+}
+.dark-card .intent, .dark-card ul, .dark-card .quote { color: rgba(255, 246, 231, .80); }
+.dark-card .panel { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+.dark-card .quote { border-color: #e3b47e; background: rgba(227,180,126,.08); }
+.checklist { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.check {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 250, 240, .76);
+  padding: 14px;
+  min-height: 80px;
+}
+.check b {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  color: #fff7ec; background: var(--accent);
+  font-size: 12px;
+}
+.check span { line-height: 1.55; color: #463c31; font-size: 14px; padding-top: 2px; }
+.ratio-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 16px; align-items: stretch; }
+.ratio-card {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 250, 240, .82);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+.ratio-card h3 { margin: 0 0 8px; font-size: 23px; letter-spacing: -.04em; }
+.ratio-card p { margin: 0; color: var(--muted); line-height: 1.7; font-size: 14.5px; }
+.bar { margin-top: 14px; display: grid; gap: 10px; }
+.bar-row { display: grid; grid-template-columns: 92px 1fr 44px; gap: 12px; align-items: center; color: #463c31; font-size: 14px; }
+.track { height: 11px; border-radius: 999px; background: rgba(37,33,28,.09); overflow: hidden; }
+.fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.script {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  white-space: pre-wrap;
+  line-height: 1.8;
+  color: #3c352d;
+  background: rgba(251,243,228,.68);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 18px;
+  font-size: 13.5px;
+}
+.day-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.day-card { position: relative; overflow: hidden; padding: 22px; display: grid; gap: 12px; min-height: 250px; }
+.day-card::after { content: ""; position: absolute; right: -60px; bottom: -80px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(141,91,55,.15), transparent 70%); }
+.day-card .kicker { color: var(--accent); font-size: 12px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+.day-card h3 { margin: 0; font-size: clamp(24px, 3vw, 36px); letter-spacing: -.05em; line-height: 1.05; }
+.day-card p { margin: 0; color: var(--muted); line-height: 1.68; font-size: 14.5px; }
+.day-card .actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 1; }
+.footer-note {
+  margin-top: 32px;
+  padding: 20px 22px;
+  border-radius: 22px;
+  color: var(--muted);
+  border: 1px dashed rgba(141,91,55,.35);
+  background: rgba(255, 250, 240, .56);
+  line-height: 1.75;
+  font-size: 14px;
+}
+.page-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+@media (max-width: 860px) {
+  .hero { padding: 28px; }
+  .quick-grid { grid-template-columns: repeat(2, 1fr); }
+  .section-title { display: block; }
+  .section-title p { text-align: left; margin-top: 10px; }
+  .mini-grid, .ratio-wrap, .day-grid { grid-template-columns: 1fr; }
+  .checklist { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .page { width: min(100% - 22px, 1120px); padding-top: 14px; }
+  .top-nav { align-items: flex-start; flex-direction: column; }
+  .hero { border-radius: 26px; padding: 24px 20px; }
+  .quick-grid { grid-template-columns: 1fr; }
+  .block { grid-template-columns: 1fr; }
+  .block::before { display: none; }
+  .time { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--line); }
+  .time .hour { margin: 0; }
+  .content { padding: 20px 18px 22px; }
+  .checklist { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 78px 1fr 38px; gap: 9px; }
+}
+@media print {
+  body { background: #fff; }
+  .page { width: 100%; padding: 0; }
+  .hero, .block, .quick-card, .ratio-card, .check, .day-card { box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <nav class="top-nav" aria-label="页面导航">
+  <a href="hk_shooting_plan_index.html">← 返回拍摄计划导航</a>
+  <div class="page-nav">
+    <a href="hk_day1_shooting_plan.html">Day 1</a>
+    <a href="hk_day2_shooting_plan.html">Day 2</a>
+    <a href="hk_day3_shooting_plan.html">Day 3</a>
+    <a href="hk_day4_shooting_plan.html">Day 4</a>
+  </div>
+</nav>
+  <header class="hero">
+    <div class="eyebrow"><span class="dot"></span> Shooting Plan · Day 04</div>
+    <h1>香港第4天<br>拍摄计划</h1>
+    <p class="subtitle">5月24日 · 中环 · 上环 · 金钟 · 机场。主题是<strong>离开前的半日散步</strong>：教堂、设计小店、午餐、商场、取行李、机场。最后一天不要塞太满，重点拍“收尾”和“离开感”。</p>
+    <div class="chips"><span class="chip">🎞 40–60 秒短片</span><span class="chip">⛪ 安静开场</span><span class="chip">🚶 半日 citywalk</span><span class="chip">🧳 离开感是核心</span><span class="chip">✈️ 机场做结尾</span></div>
+  </header>
+  <section class="quick-grid" aria-label="拍摄概要"><article class="quick-card"><strong>主题</strong><span>离开前的半日散步：安静、走路、午餐、机场。</span></article><article class="quick-card"><strong>主片</strong><span>离开香港前｜中环上环半日散步。</span></article><article class="quick-card"><strong>比例</strong><span>竖屏 80%，横屏 10%，封面图 10%。</span></article><article class="quick-card"><strong>重点</strong><span>最后一天要收束，不要再开新故事。</span></article></section>
+  <section>
+    <div class="section-title"><h2>按行程执行的拍摄时间线</h2><p>每个地点都用“动作 → 环境 → 细节 → 离开”来拍，避免只留下漂亮空镜。</p></div>
+    <div class="timeline"><article class="block ">
+  <div class="time"><span class="num">01</span><span class="hour">09:00</span></div>
+  <div class="content">
+    <h3>从铜锣湾出发 → 中环</h3>
+    <p class="intent">这段是最后一天的开场。不要急，拍早晨出门、港铁、街道变成中环的感觉。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>酒店早晨窗边 / 行李还在房间。</li><li>出门、电梯、街道第一眼。</li><li>港铁站台 / 扶梯 / 中环出口。</li><li>中环高楼、斜坡、树影。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">最后一天，想把节奏放慢一点。<br>离开前，先去中环走一走。</div></div>
+    </div>
+  </div>
+</article><article class="block ">
+  <div class="time"><span class="num">02</span><span class="hour">09:15</span></div>
+  <div class="content">
+    <h3>圣约翰座堂</h3>
+    <p class="intent">这是最适合做 Day 4 开头的安静场景。拍建筑外立面、推门、椅子、光线和坐下的动作。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>教堂外立面：竖屏拍建筑高度。</li><li>推门进入 / 走进室内。</li><li>椅子、彩窗、光线、木质细节。</li><li>人坐下的背影，安静停 8 秒。</li><li>走出教堂，光线变化。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">离开香港前，我想找一个安静的地方坐一会儿。<br>城市很快，但这里很慢。</div><br><h4>⚠️ 注意 / 避免</h4><ul><li>内部拍摄保持克制，不打扰他人。</li><li>不要在这里放太多解释字幕。</li></ul></div>
+    </div>
+  </div>
+</article><article class="block ">
+  <div class="time"><span class="num">03</span><span class="hour">10:00</span></div>
+  <div class="content">
+    <h3>PMQ 元创方</h3>
+    <p class="intent">PMQ 适合拍设计感和建筑线条，但不要拍成购物清单。重点是走廊、楼梯、天井、店铺门口和手部翻看。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>楼梯、走廊、天井空间。</li><li>人物从画面中走过，留建筑线条。</li><li>独立设计小物、书、明信片、包装。</li><li>手拿 / 翻看 / 放回。</li><li>如果有咖啡，小休一条。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">上午的中环上环，适合慢慢走。<br>设计小店里的细节，比购物本身更有意思。</div></div>
+    </div>
+  </div>
+</article><article class="block ">
+  <div class="time"><span class="num">04</span><span class="hour">11:45</span></div>
+  <div class="content">
+    <h3>Samsen 午餐</h3>
+    <p class="intent">这是最后一天的生活感。少拍菜，多拍从街道走进店、坐下、吃完走出上环。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>店门口 / 排队或开门前状态。</li><li>菜单、杯子、餐具。</li><li>上菜瞬间：侧拍 + 俯拍。</li><li>手拿杯子 / 吃完放下餐具。</li><li>饭后走出店门，接上环街道。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">最后一顿午餐，不想拍得太匆忙。<br>吃完以后，旅行开始进入倒计时。</div><br><h4>⚠️ 注意 / 避免</h4><ul><li>不要把它拍成“必吃攻略”。</li><li>食物最多占这条视频 10–15%。</li></ul></div>
+    </div>
+  </div>
+</article><article class="block ">
+  <div class="time"><span class="num">05</span><span class="hour">13:30</span></div>
+  <div class="content">
+    <h3>太古广场 / 金钟短暂停留</h3>
+    <p class="intent">这段可以作为中环上环后的现代城市过渡。若时间紧，可以少拍，保证后面取行李和机场。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>商场 / 玻璃 / 扶梯线条。</li><li>人物走过室内空间。</li><li>香港公园方向或街道树影。</li><li>看时间 / 准备回酒店。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">旅行的最后几个小时，总会变得很具体。<br>看时间、取行李、去机场。</div><br><h4>⚠️ 注意 / 避免</h4><ul><li>如果太赶，这段直接放弃；不要影响机场和收尾镜头。</li></ul></div>
+    </div>
+  </div>
+</article><article class="block dark-card">
+  <div class="time"><span class="num">06</span><span class="hour">14:00</span></div>
+  <div class="content">
+    <h3>返回酒店取行李</h3>
+    <p class="intent">这是 Day 4 最重要的收尾动作之一。要拍“离开房间”：行李、房卡、关门、走廊。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>回酒店门口 / 电梯。</li><li>收拾行李：拉链、衣服、房卡。</li><li>最后看一眼房间 / 窗外。</li><li>关门、走廊、拉行李离开。</li><li>酒店门口回头一眼。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">真正的离开，不是在机场，而是关上房门的那一刻。<br>把房间还给这座城市。</div></div>
+    </div>
+  </div>
+</article><article class="block ">
+  <div class="time"><span class="num">07</span><span class="hour">14:30</span></div>
+  <div class="content">
+    <h3>前往机场 / 航班出发</h3>
+    <p class="intent">最后一定要拍结束感。机场镜头不需要多，但要稳：机场快线、窗外、登机口、飞机窗。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>机场快线或交通窗外。</li><li>手扶行李箱 / 票 / 护照或手机。</li><li>机场大厅远景。</li><li>登机口 / 窗外飞机。</li><li>飞机窗外或起飞前一眼。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">香港四天，结束在机场的广播声里。<br>下一次来，希望还能慢慢走。</div></div>
+    </div>
+  </div>
+</article></div>
+  </section>
+  <section>
+    <div class="section-title"><h2>当天必拍清单</h2><p>现场很累时，优先保证下面这些镜头。拍到了，视频就能成立。</p></div>
+    <div class="checklist"><div class="check"><b>1</b><span>早晨酒店窗边 / 行李</span></div><div class="check"><b>2</b><span>港铁到中环</span></div><div class="check"><b>3</b><span>圣约翰座堂外立面</span></div><div class="check"><b>4</b><span>推门进入教堂</span></div><div class="check"><b>5</b><span>坐下的背影和光线</span></div><div class="check"><b>6</b><span>PMQ 楼梯 / 走廊</span></div><div class="check"><b>7</b><span>设计小物手部动作</span></div><div class="check"><b>8</b><span>Samsen 店门和午餐</span></div><div class="check"><b>9</b><span>饭后上环街道</span></div><div class="check"><b>10</b><span>回酒店收拾行李</span></div><div class="check"><b>11</b><span>关门离开房间</span></div><div class="check"><b>12</b><span>机场快线 / 机场大厅 / 登机口</span></div></div>
+  </section>
+  <section>
+  <div class="section-title"><h2>镜头比例与现场执行</h2><p>拍摄时先保证人物动作，再补环境和细节。每个镜头至少留 5 秒，重要空镜留 8–10 秒。</p></div>
+  <div class="ratio-wrap">
+    <article class="ratio-card"><h3>当天镜头比例</h3><p>Day 4 要做“收尾”，不是再塞一个新攻略。</p><div class="bar"><div class="bar-row"><span>人物动作</span><div class="track"><div class="fill" style="width:42%"></div></div><b>42%</b></div><div class="bar-row"><span>安静空间</span><div class="track"><div class="fill" style="width:22%"></div></div><b>22%</b></div><div class="bar-row"><span>细节特写</span><div class="track"><div class="fill" style="width:16%"></div></div><b>16%</b></div><div class="bar-row"><span>城市过渡</span><div class="track"><div class="fill" style="width:10%"></div></div><b>10%</b></div><div class="bar-row"><span>离开感</span><div class="track"><div class="fill" style="width:10%"></div></div><b>10%</b></div></div></article>
+    <article class="ratio-card"><h3>现场执行版</h3><p>把教堂的安静、PMQ 的细节、午餐的生活感和机场的离开感连接起来。</p><div class="script">第四天拍摄目标：
+拍出“离开前的半日散步”。
+
+主线：中环教堂 → PMQ → Samsen 午餐 → 金钟短暂停留 → 回酒店取行李 → 机场。
+
+重点不是玩够，而是收束：慢慢走、坐一会儿、吃完最后一顿饭、关上房门、去机场。
+
+标题方向：离开香港前｜中环上环半日散步</div></article>
+  </div>
+</section>
+  <div class="footer-note">拍摄重点：这一天不要试图证明自己去了很多地方，而是让观众感到“我跟着你经历了一段旅行”。<br>返回 <a href="hk_shooting_plan_index.html">拍摄计划导航</a>。</div>
+</main>
+</body>
+</html>

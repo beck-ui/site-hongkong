@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>香港第2天拍摄计划 · 童话切换到城市</title>
+  <style>
+:root {
+  --bg: #f5f1e8;
+  --paper: #fffaf0;
+  --paper-2: #fbf3e4;
+  --ink: #25211c;
+  --muted: #756b5f;
+  --line: rgba(50, 42, 32, 0.14);
+  --accent: #8d5b37;
+  --accent-2: #b98a5c;
+  --night: #1f2a33;
+  --green: #536a55;
+  --blue: #4b6472;
+  --shadow: 0 18px 50px rgba(45, 35, 20, .10);
+  --radius: 26px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(185, 138, 92, .22), transparent 30%),
+    radial-gradient(circle at top right, rgba(75, 100, 114, .16), transparent 28%),
+    linear-gradient(180deg, #f7f1e8 0%, #efe5d6 100%);
+  color: var(--ink);
+  letter-spacing: .01em;
+}
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: none; }
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 34px 0 56px;
+}
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.top-nav a, .link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 240, .62);
+  font-weight: 700;
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  min-height: 340px;
+  padding: 38px;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 240, .95), rgba(255, 250, 240, .70)),
+    linear-gradient(135deg, rgba(31, 42, 51, .16), rgba(141, 91, 55, .10));
+  box-shadow: var(--shadow);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(37, 33, 28, .05) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(37, 33, 28, .05) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.35), transparent 72%);
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  right: -90px;
+  bottom: -110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(141, 91, 55, .26), transparent 65%);
+  pointer-events: none;
+}
+.eyebrow {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  background: var(--accent);
+  box-shadow: 0 0 0 7px rgba(141, 91, 55, .10);
+}
+h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(40px, 8vw, 88px);
+  line-height: .95;
+  letter-spacing: -.07em;
+  font-weight: 850;
+}
+.subtitle {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.72;
+}
+.chips {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 240, .68);
+  color: #4b4036;
+  font-size: 13px;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+.quick-card, .day-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px;
+  background: rgba(255, 250, 240, .72);
+  box-shadow: 0 12px 30px rgba(45, 35, 20, .06);
+}
+.quick-card strong {
+  display: block;
+  font-size: 24px;
+  letter-spacing: -.03em;
+  margin-bottom: 5px;
+}
+.quick-card span { color: var(--muted); font-size: 13px; line-height: 1.48; }
+.section-title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 44px 0 18px;
+}
+.section-title h2 {
+  margin: 0;
+  font-size: clamp(26px, 4vw, 42px);
+  letter-spacing: -.05em;
+  line-height: 1.05;
+}
+.section-title p {
+  max-width: 530px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 15px;
+  text-align: right;
+}
+.timeline { display: grid; gap: 18px; }
+.block {
+  position: relative;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 250, 240, .82);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.block::before {
+  content: "";
+  position: absolute;
+  left: 91px; top: 0; bottom: 0;
+  width: 1px; background: var(--line);
+}
+.time {
+  padding: 24px 14px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(251, 243, 228, .65), rgba(255, 250, 240, .45));
+}
+.time .num {
+  display: block;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: .12em;
+}
+.time .hour {
+  display: block;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: -.03em;
+}
+.content { padding: 24px 24px 26px; }
+.content h3 {
+  margin: 0 0 8px;
+  font-size: clamp(21px, 2.4vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -.04em;
+}
+.intent { margin: 0 0 18px; color: var(--muted); line-height: 1.72; font-size: 15px; }
+.mini-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 12px; align-items: stretch; }
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(251, 243, 228, .68);
+  padding: 16px;
+}
+.panel h4 {
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  letter-spacing: -.01em;
+}
+ul { margin: 0; padding: 0 0 0 18px; color: #3f382f; line-height: 1.78; font-size: 14.5px; }
+li + li { margin-top: 2px; }
+.quote {
+  margin: 12px 0 0;
+  border-left: 3px solid var(--accent-2);
+  padding: 8px 0 8px 13px;
+  color: #584a3d;
+  font-size: 14.5px;
+  line-height: 1.65;
+  background: linear-gradient(90deg, rgba(185, 138, 92, .10), transparent);
+  border-radius: 0 12px 12px 0;
+}
+.dark-card {
+  background: linear-gradient(135deg, rgba(31, 42, 51, .96), rgba(45, 52, 51, .94));
+  color: #fff6e7;
+  border: 0;
+}
+.dark-card .intent, .dark-card ul, .dark-card .quote { color: rgba(255, 246, 231, .80); }
+.dark-card .panel { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+.dark-card .quote { border-color: #e3b47e; background: rgba(227,180,126,.08); }
+.checklist { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.check {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 250, 240, .76);
+  padding: 14px;
+  min-height: 80px;
+}
+.check b {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  color: #fff7ec; background: var(--accent);
+  font-size: 12px;
+}
+.check span { line-height: 1.55; color: #463c31; font-size: 14px; padding-top: 2px; }
+.ratio-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 16px; align-items: stretch; }
+.ratio-card {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 250, 240, .82);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+.ratio-card h3 { margin: 0 0 8px; font-size: 23px; letter-spacing: -.04em; }
+.ratio-card p { margin: 0; color: var(--muted); line-height: 1.7; font-size: 14.5px; }
+.bar { margin-top: 14px; display: grid; gap: 10px; }
+.bar-row { display: grid; grid-template-columns: 92px 1fr 44px; gap: 12px; align-items: center; color: #463c31; font-size: 14px; }
+.track { height: 11px; border-radius: 999px; background: rgba(37,33,28,.09); overflow: hidden; }
+.fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.script {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  white-space: pre-wrap;
+  line-height: 1.8;
+  color: #3c352d;
+  background: rgba(251,243,228,.68);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 18px;
+  font-size: 13.5px;
+}
+.day-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.day-card { position: relative; overflow: hidden; padding: 22px; display: grid; gap: 12px; min-height: 250px; }
+.day-card::after { content: ""; position: absolute; right: -60px; bottom: -80px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(141,91,55,.15), transparent 70%); }
+.day-card .kicker { color: var(--accent); font-size: 12px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+.day-card h3 { margin: 0; font-size: clamp(24px, 3vw, 36px); letter-spacing: -.05em; line-height: 1.05; }
+.day-card p { margin: 0; color: var(--muted); line-height: 1.68; font-size: 14.5px; }
+.day-card .actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 1; }
+.footer-note {
+  margin-top: 32px;
+  padding: 20px 22px;
+  border-radius: 22px;
+  color: var(--muted);
+  border: 1px dashed rgba(141,91,55,.35);
+  background: rgba(255, 250, 240, .56);
+  line-height: 1.75;
+  font-size: 14px;
+}
+.page-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+@media (max-width: 860px) {
+  .hero { padding: 28px; }
+  .quick-grid { grid-template-columns: repeat(2, 1fr); }
+  .section-title { display: block; }
+  .section-title p { text-align: left; margin-top: 10px; }
+  .mini-grid, .ratio-wrap, .day-grid { grid-template-columns: 1fr; }
+  .checklist { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .page { width: min(100% - 22px, 1120px); padding-top: 14px; }
+  .top-nav { align-items: flex-start; flex-direction: column; }
+  .hero { border-radius: 26px; padding: 24px 20px; }
+  .quick-grid { grid-template-columns: 1fr; }
+  .block { grid-template-columns: 1fr; }
+  .block::before { display: none; }
+  .time { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--line); }
+  .time .hour { margin: 0; }
+  .content { padding: 20px 18px 22px; }
+  .checklist { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 78px 1fr 38px; gap: 9px; }
+}
+@media print {
+  body { background: #fff; }
+  .page { width: 100%; padding: 0; }
+  .hero, .block, .quick-card, .ratio-card, .check, .day-card { box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <nav class="top-nav" aria-label="页面导航">
+  <a href="hk_shooting_plan_index.html">← 返回拍摄计划导航</a>
+  <div class="page-nav">
+    <a href="hk_day1_shooting_plan.html">Day 1</a>
+    <a href="hk_day2_shooting_plan.html">Day 2</a>
+    <a href="hk_day3_shooting_plan.html">Day 3</a>
+    <a href="hk_day4_shooting_plan.html">Day 4</a>
+  </div>
+</nav>
+  <header class="hero">
+    <div class="eyebrow"><span class="dot"></span> Shooting Plan · Day 02</div>
+    <h1>香港第2天<br>拍摄计划</h1>
+    <p class="subtitle">5月22日 · 迪士尼全天 · 下午转铜锣湾 · Doraya 定食。主题是<strong>从童话切换到城市</strong>：上午补拍干净明亮的乐园，下午用行李和港铁完成转场，晚上进入铜锣湾街头。</p>
+    <div class="chips"><span class="chip">🎞 45–70 秒短片</span><span class="chip">🌤 早晨补拍乐园</span><span class="chip">🚇 转场是重点</span><span class="chip">🌃 铜锣湾夜晚</span><span class="chip">🍽 不做纯探店</span></div>
+  </header>
+  <section class="quick-grid" aria-label="拍摄概要"><article class="quick-card"><strong>主题</strong><span>从童话切换到城市：乐园、离开、港铁、铜锣湾夜色。</span></article><article class="quick-card"><strong>主片</strong><span>从迪士尼到铜锣湾｜香港最有反差的一天。</span></article><article class="quick-card"><strong>比例</strong><span>75% 竖屏，15% 横屏大场景，10% 封面图。</span></article><article class="quick-card"><strong>重点</strong><span>“离开乐园”比“继续玩项目”更有故事感。</span></article></section>
+  <section>
+    <div class="section-title"><h2>按行程执行的拍摄时间线</h2><p>每个地点都用“动作 → 环境 → 细节 → 离开”来拍，避免只留下漂亮空镜。</p></div>
+    <div class="timeline"><article class="block ">
+  <div class="time"><span class="num">01</span><span class="hour">09:00</span></div>
+  <div class="content">
+    <h3>早晨迪士尼补拍</h3>
+    <p class="intent">Day 1 已经拍夜晚，Day 2 早晨要补干净、明亮、秩序感的画面。不要重复夜场，拍“从童话里醒来”。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>酒店走廊、鞋、房卡、早晨出门。</li><li>早晨园区空一点的街道。</li><li>主街、橱窗、路灯在白天的样子。</li><li>人物背影走过干净街道。</li><li>少量项目排队 / 手部动作 / 表情细节。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">第二天早上，乐园像刚醒来。<br>白天的童话，比夜晚更有秩序感。</div><br><h4>⚠️ 注意 / 避免</h4><ul><li>不要把项目玩乐当主线。</li><li>如果赶项目，至少在走路时补 3–5 条人物动作镜头。</li></ul></div>
+    </div>
+  </div>
+</article><article class="block ">
+  <div class="time"><span class="num">02</span><span class="hour">午间</span></div>
+  <div class="content">
+    <h3>午餐与乐园细节</h3>
+    <p class="intent">这段只做过渡，不要拍成美食记录。重点是人的停顿、补水、休息、收拾准备离开。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>餐盘 / 饮料 / 手拿餐具。</li><li>坐下休息的背影或侧面。</li><li>包、票、手机地图、充电宝。</li><li>离开前最后看一眼园区。</li><li>阳光下的路牌或建筑细节。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">玩到中午，开始有一点现实感。<br>童话快结束的时候，人会突然安静下来。</div></div>
+    </div>
+  </div>
+</article><article class="block ">
+  <div class="time"><span class="num">03</span><span class="hour">16:00</span></div>
+  <div class="content">
+    <h3>离开迪士尼，前往铜锣湾</h3>
+    <p class="intent">这是 Day 2 的核心转场。你要拍“童话结束”的动作：拉行李、离开酒店、坐港铁、换乘、走出铜锣湾。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>拉行李离开酒店 / 乐园区域。</li><li>回头看酒店或园区一眼。</li><li>迪士尼线车厢：扶手、窗外、站名。</li><li>港铁换乘：扶梯、人流、站台。</li><li>铜锣湾站出口 / 街头第一眼。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">下午四点，童话结束。<br>港铁把我们带回一座很现实的城市。</div><br><h4>⚠️ 注意 / 避免</h4><ul><li>不要只拍站牌；一定要有人拉行李或走路。</li><li>转场镜头多拍 5 秒，后期非常有用。</li></ul></div>
+    </div>
+  </div>
+</article><article class="block ">
+  <div class="time"><span class="num">04</span><span class="hour">17:15</span></div>
+  <div class="content">
+    <h3>香港明怡美憬阁精选酒店 Check-in</h3>
+    <p class="intent">这段是“城市房间”的过渡：和迪士尼酒店形成对比。不要拍太多酒店评测，拍洗漱、换装、准备出门。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>酒店外观 / 大堂入口。</li><li>房卡开门或电梯楼层。</li><li>行李放下、洗手、换鞋、整理衣服。</li><li>窗外铜锣湾城市感。</li><li>出门前关门 / 走进电梯。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">从童话酒店，换到城市里的房间。<br>窗外不再是乐园，是香港的密度。</div></div>
+    </div>
+  </div>
+</article><article class="block ">
+  <div class="time"><span class="num">05</span><span class="hour">18:30</span></div>
+  <div class="content">
+    <h3>Doraya 定食</h3>
+    <p class="intent">不要拍成纯美食探店。餐厅是“进入香港夜晚”的入口：等位、入座、上菜、吃完走出去。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>店招和门口，先交代外观。</li><li>排队等位：人、街灯、手机。</li><li>菜单 / 点单 / 杯子。</li><li>定食上桌：俯拍一条，侧拍一条。</li><li>吃完走出店门，接铜锣湾夜街。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">一顿饭把我带进香港的夜晚。<br>吃完走出去，城市才真正开始。</div><br><h4>⚠️ 注意 / 避免</h4><ul><li>不要只拍食物特写。</li><li>餐厅外的人和街道比菜本身更适合你。</li></ul></div>
+    </div>
+  </div>
+</article><article class="block dark-card">
+  <div class="time"><span class="num">06</span><span class="hour">饭后</span></div>
+  <div class="content">
+    <h3>铜锣湾周边随逛</h3>
+    <p class="intent">这是 Day 2 的情绪高潮：巴士、路牌、雨后地面、商场灯光、街角人影。重点拍“饭后慢慢走”。</p>
+    <div class="mini-grid">
+      <div class="panel"><h4>🎬 必拍镜头</h4><ul><li>饭后从餐厅出来的第一眼街道。</li><li>路牌、巴士、叮叮车 / 车流。</li><li>人物站在街角看红绿灯。</li><li>湿地反光 / 橱窗反射。</li><li>回酒店路上背影。</li></ul></div>
+      <div class="panel"><h4>✍️ 字幕感觉</h4><div class="quote">如果不急着购物，铜锣湾的夜晚可以慢慢走。<br>香港的电影感，很多时候就在饭后的街角。</div></div>
+    </div>
+  </div>
+</article></div>
+  </section>
+  <section>
+    <div class="section-title"><h2>当天必拍清单</h2><p>现场很累时，优先保证下面这些镜头。拍到了，视频就能成立。</p></div>
+    <div class="checklist"><div class="check"><b>1</b><span>早晨酒店走廊 / 房卡</span></div><div class="check"><b>2</b><span>白天主街和橱窗</span></div><div class="check"><b>3</b><span>人物走在园区街道</span></div><div class="check"><b>4</b><span>离开迪士尼时拉行李</span></div><div class="check"><b>5</b><span>迪士尼线 / 港铁换乘</span></div><div class="check"><b>6</b><span>铜锣湾站出口第一眼</span></div><div class="check"><b>7</b><span>城市酒店窗外</span></div><div class="check"><b>8</b><span>Doraya 店门与等位</span></div><div class="check"><b>9</b><span>定食上桌和手部动作</span></div><div class="check"><b>10</b><span>饭后走出餐厅</span></div><div class="check"><b>11</b><span>铜锣湾路牌 / 巴士 / 街灯</span></div><div class="check"><b>12</b><span>回酒店路上的背影</span></div></div>
+  </section>
+  <section>
+  <div class="section-title"><h2>镜头比例与现场执行</h2><p>拍摄时先保证人物动作，再补环境和细节。每个镜头至少留 5 秒，重要空镜留 8–10 秒。</p></div>
+  <div class="ratio-wrap">
+    <article class="ratio-card"><h3>当天镜头比例</h3><p>Day 2 的核心不是继续玩乐园，而是“从乐园离开并进入城市”。</p><div class="bar"><div class="bar-row"><span>人物动作</span><div class="track"><div class="fill" style="width:38%"></div></div><b>38%</b></div><div class="bar-row"><span>转场镜头</span><div class="track"><div class="fill" style="width:22%"></div></div><b>22%</b></div><div class="bar-row"><span>城市夜景</span><div class="track"><div class="fill" style="width:20%"></div></div><b>20%</b></div><div class="bar-row"><span>细节特写</span><div class="track"><div class="fill" style="width:12%"></div></div><b>12%</b></div><div class="bar-row"><span>环境空镜</span><div class="track"><div class="fill" style="width:8%"></div></div><b>8%</b></div></div></article>
+    <article class="ratio-card"><h3>现场执行版</h3><p>把离开、换乘、入住、吃饭、饭后散步连成一条动作线。</p><div class="script">第二天拍摄目标：
+上午补拍白天迪士尼，下午重点拍离开乐园和转场，晚上拍铜锣湾饭后街头。
+
+视频主线：从童话切换到城市。
+
+必拍：早晨园区、离开酒店、拉行李、迪士尼线、港铁换乘、铜锣湾出口、城市酒店、Doraya 店门、等位、上菜、饭后街角、回酒店背影。
+
+标题方向：从迪士尼到铜锣湾｜香港最有反差的一天</div></article>
+  </div>
+</section>
+  <div class="footer-note">拍摄重点：这一天不要试图证明自己去了很多地方，而是让观众感到“我跟着你经历了一段旅行”。<br>下一页：<a href="hk_day3_shooting_plan.html">Day 3</a> · 或返回 <a href="hk_shooting_plan_index.html">拍摄计划导航</a>。</div>
+</main>
+</body>
+</html>
